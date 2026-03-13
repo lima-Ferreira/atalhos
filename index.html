@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Lojas Maravilha</title>
+    <style>
+        /* CSS PURO - SEM DEPENDÊNCIA DE INTERNET PARA O LAYOUT */
+        body {
+            font-family: sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background: #1a202c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid #ffca28;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-top: 30px;
+            border-left: 4px solid #2563eb;
+            padding-left: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: 0.2s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: #2563eb;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: #2563eb;
+            border-radius: 50%;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .info b {
+            display: block;
+            font-size: 0.95rem;
+            color: #1a202c;
+        }
+
+        .info span {
+            font-size: 0.8rem;
+            color: #718096;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #a0aec0;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1 style="margin:0; font-size: 1.5rem;">LOJAS MARAVILHA</h1>
+        <p style="margin:5px 0 0; opacity: 0.8; font-size: 0.9rem;">Acessos Rápidos</p>
+    </header>
+
+    <div class="container">
+
+        <h2>Consulta de CNPJ</h2>
+        <div class="grid">
+            <a href="https://consultapublica.sefaz.ce.gov.br/sintegra/preparar-consultar" target="_blank" class="card">
+                <div class="dot"></div>
+                <div class="info"><b>Sintegra</b><span>Consulta Estadual</span></div>
+            </a>
+        </div>
+
+        <h2>Financeiras</h2>
+        <div class="grid">
+            <a href="https://www2.ucred.net.br/ucredit/asp_admi/logar.asp?abandona=N" target="_blank" class="card">
+                <div class="dot" style="background:#e53e3e;"></div>
+                <div class="info"><b>Ucred</b><span>Acesso Lojista</span></div>
+            </a>
+            <a href="https://app.kerocredito.com.br/kerocredito/Login.aspx?ReturnUrl=%2Fkerocredito%2FProposta%2FView%2FDetalheProposta.aspx%3FIDProposta%3D588647%26IDCliente%3D359128&IDProposta=588647&IDCliente=359128"
+                target="_blank" class="card">
+                <div class="dot" style="background:#e53e3e;"></div>
+                <div class="info"><b>Kerocrédito</b><span>Propostas</span></div>
+            </a>
+            <a href="https://www.brasilcard.net/bca/lojista/login" target="_blank" class="card">
+                <div class="dot" style="background:#e53e3e;"></div>
+                <div class="info"><b>BrasilCard</b><span>Acesso Geral</span></div>
+            </a>
+        </div>
+
+        <h2>NF-e / CF-e</h2>
+        <div class="grid">
+            <a href="https://consultadanfe.com/#" target="_blank" class="card">
+                <div class="dot" style="background:#38a169;"></div>
+                <div class="info"><b>NFe PDF</b><span>Consulta Danfe</span></div>
+            </a>
+            <a href="https://www.fsist.com.br/" target="_blank" class="card">
+                <div class="dot" style="background:#38a169;"></div>
+                <div class="info"><b>Fsist</b><span>NFe / CTe</span></div>
+            </a>
+            <a href="http://nfce.sefaz.ce.gov.br/pages/consultaNota.jsf" target="_blank" class="card">
+                <div class="dot" style="background:#38a169;"></div>
+                <div class="info"><b>NFCe</b><span>Sefaz CE</span></div>
+            </a>
+            <a href=" https://cfe.sefaz.ce.gov.br/mfe/servicos#/cupom-fiscal" target="_blank" class="card">
+                <div class="dot" style="background:#38a169;"></div>
+                <div class="info"><b>CFe</b><span>Cupom Fiscal</span></div>
+            </a>
+        </div>
+
+    </div>
+
+    <footer>&copy; Lojas Maravilha - Uso Interno</footer>
+
+</body>
+
+</html>
