@@ -5,38 +5,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Lojas Maravilha</title>
+
     <style>
-        /* CSS PURO - SEM DEPENDÊNCIA DE INTERNET PARA O LAYOUT */
         body {
-            font-family: sans-serif;
-            background: #f0f2f5;
             margin: 0;
-            padding: 0;
-            color: #333;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
         }
 
+        /* HEADER */
         header {
+            position: fixed;
+            top: 0;
+            left: 240px;
+            width: calc(100% - 240px);
+            height: 80px;
+            /* 👈 FIXA ALTURA */
+
             background: #1a202c;
             color: white;
-            padding: 20px;
-            text-align: center;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
             border-bottom: 4px solid #ffca28;
+            z-index: 1000;
         }
 
+        header h1 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin: 2px 0 0;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 240px;
+            height: 100%;
+            background: #1a202c;
+            padding-top: 80px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .sidebar a:hover {
+            background: #2d3748;
+        }
+
+        /* CONTAINER */
         .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 0 15px;
+            margin-left: 240px;
+            padding: 100px 25px 25px;
+            /* 👈 ESSENCIAL */
         }
 
         h2 {
-            font-size: 1.1rem;
-            color: #4a5568;
-            margin-top: 30px;
-            border-left: 4px solid #2563eb;
+            border-left: 5px solid #2563eb;
             padding-left: 10px;
         }
 
+        /* GRID */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -44,130 +90,130 @@
             margin-top: 15px;
         }
 
+        /* CARD */
         .card {
             background: white;
             padding: 15px;
             border-radius: 8px;
             text-decoration: none;
-            color: inherit;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            color: black;
+            border: 1px solid #ddd;
             transition: 0.2s;
-            border: 1px solid #e2e8f0;
         }
 
         .card:hover {
-            transform: translateY(-3px);
             border-color: #2563eb;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
         }
 
-        .dot {
-            width: 12px;
-            height: 12px;
-            background: #2563eb;
-            border-radius: 50%;
-            margin-right: 12px;
-            flex-shrink: 0;
+        /* TELAS */
+        .secao {
+            display: none;
         }
 
-        .info b {
+        .secao.ativa {
             display: block;
-            font-size: 0.95rem;
-            color: #1a202c;
-        }
-
-        .info span {
-            font-size: 0.8rem;
-            color: #718096;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            color: #a0aec0;
-            font-size: 0.8rem;
         }
     </style>
 </head>
 
 <body>
 
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <a onclick="mostrar('home')">🏠 Início</a>
+        <a onclick="mostrar('financeiras')">💰 Financeiras</a>
+        <a onclick="mostrar('nfe')">📄 NF-e</a>
+        <a onclick="mostrar('cnpj')">🔎 Consulta CNPJ</a>
+        <a onclick="mostrar('sistemas')">🚀 Sistemas</a>
+        <a onclick="mostrar('suporte')">🛠 Suporte</a>
+    </div>
+
+    <!-- HEADER -->
     <header>
-        <h1 style="margin:0; font-size: 1.5rem;">LOJAS MARAVILHA</h1>
-        <p style="margin:5px 0 0; opacity: 0.8; font-size: 0.9rem;">Acessos Rápidos</p>
+        <h1>LOJAS MARAVILHA</h1>
+        <p>Portal Interno</p>
     </header>
 
+    <!-- CONTEÚDO -->
     <div class="container">
 
-   <h2>Suport infobrasil</h2>
-        <div class="grid">
-            <a href="http://dbinfo01.iprojectti.com.br:8008/infobrasilsistemas/areadosuporte/principal.html" target="_blank"
-                class="card">
-                <div class="dot"></div>
-                <div class="info"><b>Info Brasil</b><span>Atualização do sistema</span></div>
-            </a>
+        <!-- HOME -->
+        <div id="home" class="secao ativa">
+            <h2>Bem-vindo</h2>
+            <p>Use o menu lateral para acessar os sistemas.</p>
         </div>
 
-        <h2>Consulta de SELO</h2>
-        <div class="grid">
-            <a href="https://portal-sitram.sefaz.ce.gov.br/sitram-internet/#/pagina-inicial" target="_blank"
-                class="card">
-                <div class="dot"></div>
-                <div class="info"><b>Sitram</b><span>Pagamento de ICMS</span></div>
-            </a>
+        <!-- SISTEMAS -->
+        <div id="sistemas" class="secao">
+            <h2>🚀 Sistemas</h2>
+            <div class="grid">
+                <a href="https://lima-ferreira.github.io/banco-de-horas/" target="_blank" class="card">Banco de
+                    Horas</a>
+                <a href="https://lima-ferreira.github.io/assistencia/" target="_blank" class="card">Assistência</a>
+                <a href="https://lima-ferreira.github.io/notas-fiscais/" target="_blank" class="card">Notas Fiscais</a>
+                <a href="https://lima-ferreira.github.io/os/" target="_blank" class="card">Ordem de Serviço</a>
+                <a href="https://lima-ferreira.github.io/recibo/" target="_blank" class="card">Recibo</a>
+                <a href="https://lima-ferreira.github.io/transferencia/" target="_blank" class="card">Transferência</a>
+                <a href="https://lima-ferreira.github.io/calc-custo/" target="_blank" class="card">Cálculo de Custo</a>
+            </div>
         </div>
 
-        <h2>Consulta de CNPJ</h2>
-        <div class="grid">
-            <a href="https://consultapublica.sefaz.ce.gov.br/sintegra/preparar-consultar" target="_blank" class="card">
-                <div class="dot"></div>
-                <div class="info"><b>Sintegra</b><span>Consulta Estadual</span></div>
-            </a>
+        <!-- SUPORTE -->
+        <div id="suporte" class="secao">
+            <h2>🛠 Suporte</h2>
+            <div class="grid">
+                <a href="http://dbinfo01.iprojectti.com.br:8008/infobrasilsistemas/areadosuporte/principal.html"
+                    target="_blank" class="card">Info Brasil</a>
+            </div>
         </div>
 
-
-        <h2>Financeiras</h2>
-        <div class="grid">
-            <a href="https://www2.ucred.net.br/ucredit/asp_admi/logar.asp?abandona=N" target="_blank" class="card">
-                <div class="dot" style="background:#e53e3e;"></div>
-                <div class="info"><b>Ucred</b><span>Acesso Lojista</span></div>
-            </a>
-            <a href="https://app.kerocredito.com.br/kerocredito/Login.aspx?ReturnUrl=%2Fkerocredito%2FProposta%2FView%2FDetalheProposta.aspx%3FIDProposta%3D588647%26IDCliente%3D359128&IDProposta=588647&IDCliente=359128"
-                target="_blank" class="card">
-                <div class="dot" style="background:#e53e3e;"></div>
-                <div class="info"><b>Kerocrédito</b><span>Propostas</span></div>
-            </a>
-            <a href="https://www.brasilcard.net/bca/lojista/login" target="_blank" class="card">
-                <div class="dot" style="background:#e53e3e;"></div>
-                <div class="info"><b>BrasilCard</b><span>Acesso Geral</span></div>
-            </a>
+        <!-- FINANCEIRAS -->
+        <div id="financeiras" class="secao">
+            <h2>💰 Financeiras</h2>
+            <div class="grid">
+                <a href="https://www2.ucred.net.br/ucredit/asp_admi/logar.asp?abandona=N" target="_blank"
+                    class="card">Ucred</a>
+                <a href="https://app.kerocredito.com.br/kerocredito/Login.aspx" target="_blank"
+                    class="card">Kerocrédito</a>
+                <a href="https://www.brasilcard.net/bca/lojista/login" target="_blank" class="card">BrasilCard</a>
+            </div>
         </div>
 
-        <h2>NF-e / CF-e</h2>
-        <div class="grid">
-            <a href="https://consultadanfe.com/#" target="_blank" class="card">
-                <div class="dot" style="background:#38a169;"></div>
-                <div class="info"><b>NFe PDF</b><span>Consulta Danfe</span></div>
-            </a>
-            <a href="https://www.fsist.com.br/" target="_blank" class="card">
-                <div class="dot" style="background:#38a169;"></div>
-                <div class="info"><b>Fsist</b><span>NFe / CTe</span></div>
-            </a>
-            <a href="http://nfce.sefaz.ce.gov.br/pages/consultaNota.jsf" target="_blank" class="card">
-                <div class="dot" style="background:#38a169;"></div>
-                <div class="info"><b>NFCe</b><span>Sefaz CE</span></div>
-            </a>
-            <a href=" https://cfe.sefaz.ce.gov.br/mfe/servicos#/cupom-fiscal" target="_blank" class="card">
-                <div class="dot" style="background:#38a169;"></div>
-                <div class="info"><b>CFe</b><span>Cupom Fiscal</span></div>
-            </a>
+        <div id="cnpj" class="secao">
+            <h2>🔎 Consulta de CNPJ</h2>
+
+            <div class="grid">
+                <a href="https://consultapublica.sefaz.ce.gov.br/sintegra/preparar-consultar" target="_blank"
+                    class="card">
+                    Sintegra - Consulta Estadual
+                </a>
+            </div>
+        </div>
+
+        <!-- NFE -->
+        <div id="nfe" class="secao">
+            <h2>📄 NF-e / CF-e</h2>
+            <div class="grid">
+                <a href="https://consultadanfe.com/#" target="_blank" class="card">NFe PDF</a>
+                <a href="https://www.fsist.com.br/" target="_blank" class="card">Fsist</a>
+                <a href="http://nfce.sefaz.ce.gov.br/pages/consultaNota.jsf" target="_blank" class="card">NFCe</a>
+                <a href="https://cfe.sefaz.ce.gov.br/mfe/servicos#/cupom-fiscal" target="_blank" class="card">CFe</a>
+            </div>
         </div>
 
     </div>
 
-    <footer>&copy; Lojas Maravilha - Uso Interno</footer>
+    <!-- JS -->
+    <script>
+        function mostrar(id) {
+            document.querySelectorAll(".secao").forEach(sec => {
+                sec.classList.remove("ativa");
+            });
+
+            document.getElementById(id).classList.add("ativa");
+        }
+    </script>
 
 </body>
 
