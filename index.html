@@ -47,6 +47,15 @@
             opacity: 0.7;
         }
 
+        .info b {
+            display: block;
+        }
+
+        .info span {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
         /* SIDEBAR */
         .sidebar {
             position: fixed;
@@ -126,6 +135,7 @@
         <a onclick="mostrar('nfe')">📄 NF-e</a>
         <a onclick="mostrar('cnpj')">🔎 Consulta CNPJ</a>
         <a onclick="mostrar('sistemas')">🚀 Sistemas</a>
+        <a onclick="mostrar('selo')">🏷 Consulta SELO</a>
         <a onclick="mostrar('suporte')">🛠 Suporte</a>
     </div>
 
@@ -177,6 +187,21 @@
                 <a href="https://app.kerocredito.com.br/kerocredito/Login.aspx" target="_blank"
                     class="card">Kerocrédito</a>
                 <a href="https://www.brasilcard.net/bca/lojista/login" target="_blank" class="card">BrasilCard</a>
+            </div>
+        </div>
+
+        <div id="selo" class="secao">
+            <h2>🏷 Consulta de SELO</h2>
+
+            <div class="grid">
+                <a href="https://portal-sitram.sefaz.ce.gov.br/sitram-internet/#/pagina-inicial" target="_blank"
+                    class="card">
+                    <div class="dot" style="background:#6366f1;"></div>
+                    <div class="info">
+                        <b>Sitram</b>
+                        <span>Pagamento de ICMS</span>
+                    </div>
+                </a>
             </div>
         </div>
 
